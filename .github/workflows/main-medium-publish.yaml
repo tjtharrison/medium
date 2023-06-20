@@ -21,7 +21,6 @@ jobs:
         env:
           MEDIUM_TOKEN: ${{ secrets.MEDIUM_TOKEN }}
         run: |
-          git fetch --prune --unshallow
           modified_articles=$(git diff --name-only origin/main..HEAD | grep "articles/")
           
           for article in $modified_articles; do
