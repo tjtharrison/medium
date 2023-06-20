@@ -2,7 +2,7 @@ name: Post to medium
 on:
   push:
     branches:
-      - "researching"
+      - "main"
   workflow_dispatch:
 
 permissions:
