@@ -1,12 +1,25 @@
 """Upload articles to medium"""
 import os
 
+import argparse
 import requests
 from dotenv import load_dotenv
 
 load_dotenv()
 
-api_token = os.environ.get("MEDIUM_API_TOKEN")
+api_token = os.environ.get("MEDIUM_TOKEN")
+
+# Get file to upload from argparse
+parser = argparse.ArgumentParser(description="Upload articles to medium")
+parser.add_argument(
+    "-f",
+    "--file",
+    type=str,
+    help="File to upload",
+    required=True,
+)
+
+args = parser.parse_args()
 
 
 # Get medium user info from api
@@ -57,8 +70,7 @@ def post_article(contents, state="draft"):
         print(error_message)
         return False
 
-    print(response.json())
-    print("Article posted")
+    print(f'New article URL: {response.json()["data"]["url"]}')
     return True
 
 
@@ -89,15 +101,13 @@ def main():
     """
     Main function
     """
-    for filename in os.listdir("articles"):
-        if filename.endswith(".md"):
-            contents = read_file(f"articles/{filename}")
-            if contents:
-                post_article(contents, state="draft")
-            else:
-                print("No contents found")
+    filename = args.file
+    if filename.endswith(".md"):
+        contents = read_file(filename)
+        if contents:
+            post_article(contents, state="draft")
         else:
-            continue
+            print("No contents found")
 
 
 if __name__ == "__main__":
