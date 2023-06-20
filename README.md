@@ -14,7 +14,14 @@ To run the action locally, you will need to create a .env file with the followin
 
 ```bash
 MEDIUM_TOKEN=<your integration token>
-``` 
+```
+
+Now install requirements from the requirements.txt file:
+
+```bash
+pip3 install -r src/requirements.txt
+```
+
 
 Once this is done, you can run the action with the following command:
 

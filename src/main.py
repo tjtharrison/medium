@@ -3,9 +3,10 @@ import os
 
 import argparse
 import requests
-from dotenv import load_dotenv
-
-load_dotenv()
+# If not github actions, use dotenv
+if not os.environ.get("GITHUB_ACTIONS"):
+    from dotenv import load_dotenv
+    load_dotenv()
 
 api_token = os.environ.get("MEDIUM_TOKEN")
 
