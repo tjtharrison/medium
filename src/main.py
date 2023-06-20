@@ -1,4 +1,4 @@
-"""Upload articles to medium"""
+"""Upload articles to medium."""
 import argparse
 import os
 
@@ -28,7 +28,7 @@ args = parser.parse_args()
 # Get medium user info from api
 def get_user_info():
     """
-    Get user details from Medium API
+    Get user details from Medium API.
 
     Returns:
          user_detail
@@ -42,7 +42,7 @@ def get_user_info():
 
 def post_article(contents, state="draft"):
     """
-    Post article on Medium API
+    Post article on Medium API.
 
     Args:
         contents: Markdown formatted content to be published onto medium.
@@ -79,7 +79,7 @@ def post_article(contents, state="draft"):
 
 def read_file(filename):
     """
-    Read file from given path
+    Read file from given path.
 
     Args:
         filename: Path to file to be read
@@ -101,9 +101,7 @@ def read_file(filename):
 
 
 def main():
-    """
-    Main function
-    """
+    """Execute function."""
     filename = args.file
     if filename.endswith(".md"):
         contents = read_file(filename)
