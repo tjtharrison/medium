@@ -27,6 +27,7 @@ jobs:
           commit_message: "Linted and formatted files"
       - name: "Code linting"
         run: |
+          pip3 install -r src/requirements.txt
           make lint
   docstring-linting:
     name: Docstring Linting
