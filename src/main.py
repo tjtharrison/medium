@@ -67,7 +67,7 @@ def post_article(contents, state="draft"):
             timeout=10,
             data=article_metadata,
         )
-        print(response.json()
+        print(response.json())
     except Exception as error_message:
         print(error_message)
         return False
