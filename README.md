@@ -1,6 +1,6 @@
 # github-actions-medium-post
 
-Github action used to upload Markdown files to medium.com, any markdown file present in `./articles` will be posted to medium.com
+Github action used to upload Markdown files to medium.com, any markdown file modified in `./articles` will be posted to medium.com
 
 ## Configuration
 
